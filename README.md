@@ -5,5 +5,5 @@ Framework to migrate Doctrine entities in the background: migrations are queued 
 ## Installation
 
 ```bash
-composer require codraw/
+composer require codraw/entity-migrator
 ```
