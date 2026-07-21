@@ -176,7 +176,9 @@ class MigrationWorkflowListener
         $queryBuilder = $manager
             ->createQueryBuilder()
             ->from($entityMigrationMetadata->name, 'entity_migration')
+            ->andWhere('entity_migration.migration = :migration')
             ->andWhere('entity_migration.state = :state')
+            ->setParameter('migration', $subject)
             ->setParameter('state', EntityMigrationWorkflow::PLACE_NEW)
         ;
 

@@ -71,6 +71,12 @@ class MigrateCommand extends Command
             ->findOneBy(['name' => $input->getArgument('migration-name')])
         ;
 
+        if (null === $migrationEntity) {
+            $io->error(\sprintf('Migration "%s" not found.', $input->getArgument('migration-name')));
+
+            return Command::FAILURE;
+        }
+
         $workflow = $this->workflowRegistry->get($migrationEntity, MigrationWorkflow::NAME);
 
         $blockerList = $workflow->buildTransitionBlockerList($migrationEntity, MigrationWorkflow::TRANSITION_PROCESS);

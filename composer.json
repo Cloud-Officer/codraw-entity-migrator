@@ -15,16 +15,28 @@
         }
     ],
     "require": {
+        "php": "^8.5",
+        "doctrine/orm": "^3.6",
+        "doctrine/persistence": "^2.2 || ^3.0",
+        "codraw/log": "^0.39",
         "codraw/messenger": "^0.39",
+        "psr/container": "^1.1 || ^2.0",
+        "psr/log": "^3",
         "symfony/console": "^6.4.0",
+        "symfony/dependency-injection": "^6.4.0",
         "symfony/event-dispatcher": "^6.4.0",
         "symfony/lock": "^6.4.0",
         "symfony/messenger": "^6.4.0",
         "symfony/workflow": "^6.4.0"
     },
     "require-dev": {
+        "codraw/dependency-injection": "^0.39",
         "codraw/tester": "^0.39",
         "phpunit/phpunit": "^11.3 || ^12.0"
+    },
+    "suggest": {
+        "codraw/framework-extra-bundle": "To integrate in Symfony",
+        "symfony/security-core": "To record the acting user identifier in entity migration transition logs"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

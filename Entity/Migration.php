@@ -27,7 +27,7 @@ class Migration implements \Stringable
     #[
         ORM\Column(type: 'string', length: 255, nullable: false)
     ]
-    private string $state;
+    private string $state = MigrationWorkflow::PLACE_NEW;
 
     public function getId(): int
     {

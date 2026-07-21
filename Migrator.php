@@ -110,6 +110,10 @@ class Migrator
 
                 break;
             } catch (\Throwable $error) {
+                if (!$this->workflow->can($entityMigration, EntityMigrationWorkflow::TRANSITION_FAIL)) {
+                    throw $error;
+                }
+
                 $this->workflow->apply($entityMigration, EntityMigrationWorkflow::TRANSITION_FAIL, ['error' => $error]);
 
                 return;
